@@ -1,0 +1,23 @@
+{
+  "name": "payment-api",
+  "version": "1.0.0",
+  "description": "Trocafone Code Challenge",
+  "scripts": {
+    "test": "NODE_ENV=test yarn run jest",
+    "coverage": "NODE_ENV=test yarn run jest --collectCoverageFrom=src/**/*.js",
+    "lint": "./node_modules/.bin/eslint src"
+  },
+  "author": "Trocafone",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.1.0"
+  }
+}
