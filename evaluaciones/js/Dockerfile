@@ -4,8 +4,8 @@ MAINTAINER Trocafone Tech "tech@trocafone.com"
 
 WORKDIR /opt/evaluaciones
 
-COPY ./api/package.json ./
-COPY ./api/yarn.lock ./
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
 RUN yarn install --frozen-lockfile
 
