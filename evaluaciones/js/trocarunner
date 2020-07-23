@@ -62,7 +62,7 @@ function check_docker()
   docker ps > /dev/null
   if [[ $? != 0 ]] ; then
     out ""
-    out "You have Docker installed, but it's not running. Please make sure you installed correctly and the daemon is running."
+    out "It's seem you have Docker installed but the docker daemon is not responding. Please make sure Docker is correctly installed and/or the daemon is running."
     out "You can search the error above to troubleshoot it."
     exit 1
   fi
@@ -72,7 +72,7 @@ function install_image()
 {
   out 'Building Docker image'
   if [[ -z $(docker images | grep trocafone-code-challenge) ]]; then
-    echo 'Running first time; will take a minute to build base image :D'
+    echo 'First run! base image needs to be built :D'
   else
     docker tag trocafone-code-challenge:latest trocafone-code-challenge:old # tagging and then removing for cache porpouses
   fi
