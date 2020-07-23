@@ -1,3 +1,7 @@
+// #################################################
+// Remove this file and create your own model's test
+// #################################################
+
 import Example from '../../src/models/example'
 
 describe('Example Model', () => {
