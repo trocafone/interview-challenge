@@ -8,6 +8,10 @@ echo ""
 run_lint () {
   export NODE_ENV='test'
   yarn run lint
+
+  if [[ $? == 0 ]] ; then
+    echo '[LINT] OK';
+  fi
 }
 
 run_tests () {
