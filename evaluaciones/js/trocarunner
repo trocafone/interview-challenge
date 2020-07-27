@@ -1,16 +1,16 @@
 #!/bin/bash
 
-ORIG_PWD=$(pwd)
-SOURCE="${BASH_SOURCE[0]}"
-while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-  SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
+function cd_to_project() {
+  ORIG_PWD=$(pwd)
+  SOURCE="${BASH_SOURCE[0]}"
+  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done
 
-cd "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-
-scripts=./scripts
+  cd "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+}
 
 function out()
 {
@@ -62,7 +62,6 @@ function check_docker()
   docker ps > /dev/null
   if [[ $? != 0 ]] ; then
     out ""
-    out "It's seem you have Docker installed but the docker daemon is not responding. Please make sure Docker is correctly installed and/or the daemon is running."
     out "You can search the error above to troubleshoot it."
     exit 1
   fi
@@ -91,6 +90,8 @@ function cleanup()
 {
   docker rmi -f trocafone-code-challenge:latest
 }
+
+cd_to_project
 
 logo
 
