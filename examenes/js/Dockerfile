@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:10.21.0
+FROM mhart/alpine-node:14.6.0
 
 MAINTAINER Trocafone Tech "tech@trocafone.com"
 

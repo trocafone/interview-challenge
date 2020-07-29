@@ -24,8 +24,13 @@ run_coverage () {
   yarn run coverage
 }
 
+run_yarn () {
+  yarn $*
+  cat package.json
+}
+
 shell () {
-    sh
+  sh
 }
 
 COMMAND=$1; shift
@@ -42,8 +47,11 @@ case $COMMAND in
   test)
     run_tests $*
   ;;
+  yarn)
+    run_yarn $*
+  ;;
   *)
-    echo "[!] Invalid or no command specified. Available commands: test, lint, coverage, shell"
+    echo "[!] Invalid or no command specified. Available commands: test, lint, coverage, yarn, shell"
     exit 1
   ;;
 esac
