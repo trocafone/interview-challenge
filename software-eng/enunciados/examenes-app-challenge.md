@@ -96,7 +96,6 @@ No es necesario incluir la base de datos. Tampoco es necesario implementar clase
 Te vamos a pedir que la entrega la hagas por mail en un `.zip` o `.tar.gz` con la siguiente estructura:
 ```
 examen/
-├── ...
 ├── documents/
 │   ├── diagrama_de_clases.pdf
 │   ├── diagrama_erd.pdf
