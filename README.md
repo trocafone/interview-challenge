@@ -1,6 +1,6 @@
 # Trocafone
 
-## Code Challenges
+## Interview Challenges
 
 En este repo vas a poder encontrar los diferentes ejercicios que tenemos para las evaluaciones y un scaffold implementado para que no tengas que hacerlo vos.
 

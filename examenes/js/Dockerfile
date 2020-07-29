@@ -1,9 +1,9 @@
 FROM mhart/alpine-node:14.6.0
 
-MAINTAINER Trocafone Tech "tech@trocafone.com"
+LABEL maintainer="Trocafone Tech tech@trocafone.com"
 
-WORKDIR /opt/evaluaciones
-ENTRYPOINT ["/opt/evaluaciones/entrypoint.sh"]
+WORKDIR /opt/interview-challenge
+ENTRYPOINT ["/opt/interview-challenge/entrypoint.sh"]
 CMD ["test"]
 
 COPY ./package.json ./

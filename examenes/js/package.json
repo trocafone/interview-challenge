@@ -1,7 +1,7 @@
 {
-  "name": "payment-api",
+  "name": "interview-challenge",
   "version": "1.0.0",
-  "description": "Trocafone Code Challenge",
+  "description": "Trocafone Interview Challenge",
   "scripts": {
     "test": "NODE_ENV=test yarn run jest",
     "coverage": "NODE_ENV=test yarn run jest --collectCoverageFrom=src/**/*.js",

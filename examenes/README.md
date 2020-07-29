@@ -1,4 +1,4 @@
-# Code challenge: Examenes
+# Interview challenge: Examenes
 
 ## Objetivos
 
@@ -109,7 +109,7 @@ examen/
 ```
 
 El `README.md` es importate especificarlo por dos motivos:
-1. Cualquier consideración, aclaración o definición que se haya hecho sobre el enunciado deberia estar escrita aquí, cuestión que podamos entender el porque se tomó ciertas desiciónes.
+1. Cualquier consideración, aclaración o definición que se haya hecho sobre el enunciado deberia estar escrita aquí, cuestión que podamos entender el porque se tomó ciertas decisiones.
 2. Si no utilizaste nuestro scaffold, explicar brevemente como se corre el código y si hay alguna consideración al correrlo.
 
 ### Código
