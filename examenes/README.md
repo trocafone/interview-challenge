@@ -116,4 +116,4 @@ El `README.md` es importate especificarlo por dos motivos:
 Para no perder tiempo con la creación de la estructura base para correr el código dejamos disponibles seeds para Node con ES6 (próximamente Typescript, Python y PHP).
 
 > Obviamente, no es obligatorio usarlo, por lo tanto si quisieras hacerlo en otra tecnologia, o con tu propio seed, bienvenido!
-Lo único que te vamos a pedir en ese caso, es que nos indiques bien cómo ejecutar los tests de tu aplicación.
+Lo único que te vamos a pedir en ese caso, es que nos indiques bien cómo ejecutar los tests de tu aplicación en el `README.md`
