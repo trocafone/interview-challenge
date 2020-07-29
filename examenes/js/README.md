@@ -1,9 +1,9 @@
 # Seed de JS / ES6
 
-Para este seed, estamos usando Node v14.6.0, transpilando el codigo con Babel (vXX) y corriendo los test con Jest (vXX).
+Para este seed, estamos usando Node v14.6.0, transpilando el codigo con Babel (v7.10.4) y corriendo los test con Jest (v26.1.0).
 A su vez dejamos configurado un linter para respetar un codestyle minimo.
 
-Esta base es bien lightweight a proposito, pero te invitamos a agregar lo que consideres necesario.
+Esta seed es bien lightweight a proposito, pero te invitamos a agregar lo que consideres necesario.
 
 ## Cosas a modifciar
 
@@ -11,15 +11,12 @@ Te dejamos una carpeta de `src` y otra de `test` con un ejemplo. Esos dos archiv
 
 Te pedimos que escribas tu código en esas dos carpetas.
 
-También, antes de mandar la solucion, te pedimos que corras los tests y el linter.
+> También, antes de mandar la solución, te pedimos que corras los tests y el linter.
 
 ## trocarunner
 
-Recordá que más allá de tener el seed, podes correr todo con nuestro runner:
-```
-./trocarunner
-```
+Recordá que más allá de tener el seed, podes correr todo con nuestro runner: `./trocarunner`
 
-El cual usa internamente Docker y está optimizado para ocupar la menor cantidad de disco posible.
+Usa internamente Docker y está optimizado para ocupar la menor cantidad de disco posible.
 
-Si no tenés Docker o si querés correr Node desde tu computadora, también podes hacerlo! Utilizá la misma versión de Node (v14.6.0) asi evitamos cualquier problema cuando nosotros lo testiemos.
+> Si no tenés Docker o si querés correr Node desde tu computadora, también podes hacerlo! Utilizá la misma versión de Node (v14.6.0) asi evitamos cualquier problema cuando nosotros lo testiemos.

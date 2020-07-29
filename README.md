@@ -1,8 +1,6 @@
 # Trocafone
 
-## Code Challenges
-
-En este repo, vas a encontrar los code challenges que enviamos para las entrevistas en Trocafone.
+## Code Challenges
 
 En este repo vas a poder encontrar los diferentes ejercicios que tenemos para las evaluaciones y un codigo de base implementado para que no tengas que hacerlo vos.
 
