@@ -110,10 +110,10 @@ examen/
 
 El `README.md` es importate especificarlo por dos motivos:
 1. Cualquier consideración, aclaración o definición que se haya hecho sobre el enunciado deberia estar escrita aquí, cuestión que podamos entender el porque se tomó ciertas desiciónes.
-2. Si no utilizaste nuestro seed, explicar brevemente como se corre el código y si hay alguna consideración al correrlo.
+2. Si no utilizaste nuestro scaffold, explicar brevemente como se corre el código y si hay alguna consideración al correrlo.
 
 ### Código
-Para no perder tiempo con la creación de la estructura base para correr el código dejamos disponibles seeds para Node con ES6 (próximamente Typescript, Python y PHP).
+Para no perder tiempo con la creación de la estructura base para correr el código dejamos disponibles scaffolds para Node con ES6 (próximamente Typescript, Python y PHP).
 
-> Obviamente, no es obligatorio usarlo, por lo tanto si quisieras hacerlo en otra tecnologia, o con tu propio seed, bienvenido!
+> Obviamente, no es obligatorio usarlo, por lo tanto si quisieras hacerlo en otra tecnologia, o con tu propio scaffold, bienvenido!
 Lo único que te vamos a pedir en ese caso, es que nos indiques bien cómo ejecutar los tests de tu aplicación en el `README.md`

@@ -1,9 +1,9 @@
-# Seed de JS / ES6
+# scaffold de Node + ES6
 
-Para este seed, estamos usando Node v14.6.0, transpilando el codigo con Babel (v7.10.4) y corriendo los test con Jest (v26.1.0).
+Para este scaffold, estamos usando Node v14.6.0, transpilando el codigo con Babel (v7.10.4) y corriendo los test con Jest (v26.1.0).
 A su vez dejamos configurado un linter para respetar un codestyle minimo.
 
-Esta seed es bien lightweight a proposito, pero te invitamos a agregar lo que consideres necesario.
+Esta scaffold es bien lightweight a proposito, pero te invitamos a agregar lo que consideres necesario.
 
 ## Cosas a modifciar
 
@@ -15,7 +15,7 @@ Te pedimos que escribas tu código en esas dos carpetas.
 
 ## trocarunner
 
-Recordá que más allá de tener el seed, podes correr todo con nuestro runner: `./trocarunner`
+Recordá que más allá de tener el scaffold, podes correr todo con nuestro runner: `./trocarunner`
 
 Usa internamente Docker y está optimizado para ocupar la menor cantidad de disco posible.
 
