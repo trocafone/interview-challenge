@@ -52,6 +52,7 @@ La pregunta se considera contestada correctamente cuando el texto ingresado es c
 ----------------
 
 > Para referencia, en la app final, un examen contestado previo al envio, debería terminar viéndose de la siguiente manera
+> ![Examen ejemplo](./assets/examen.png)
 
 ## Se pide
 
