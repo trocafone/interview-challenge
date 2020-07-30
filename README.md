@@ -1,2 +1,9 @@
-# code-challenge
-Code challenge exercises &amp; base images to run tests
+# Trocafone
+
+## Interview Challenges
+
+En este repo vas a poder encontrar los diferentes ejercicios que tenemos para las entrevistas.
+
+Por favor, respetá el ejercicio que te pidieron hacer.
+
+Éxitos!
