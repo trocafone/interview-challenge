@@ -87,7 +87,7 @@ Plasmar el diagrama de clases en algún lenguaje a elección y desarrollar el c�
 
 > El usuario contesta un examen y obtiene su puntaje.
 
-Escribir tests que demuestren que el correcto funcionamiento de la solución partiendo de un examen ya levantado en memoria y un JSON representado la contestación de un usuario. 
+Escribir tests que demuestren el correcto funcionamiento de la solución partiendo de un examen ya levantado en memoria y un JSON representado la contestación de un usuario. 
 
 No es necesario incluir la base de datos. Tampoco es necesario implementar clases y código que estén en el diagrama de clases pero que no participen en este caso de uso particular.
 
@@ -108,8 +108,8 @@ examen/
 └── README.md
 ```
 
-El `README.md` es importate especificarlo por dos motivos:
-1. Cualquier consideración, aclaración o definición que se haya hecho sobre el enunciado deberia estar escrita aquí, cuestión que podamos entender el porque se tomó ciertas decisiones.
+El `README.md` es importante especificarlo por dos motivos:
+1. Cualquier consideración, aclaración o definición que se haya hecho sobre el enunciado debería estar escrita aquí, cuestión que podamos entender el porque se tomó ciertas decisiones.
 2. Si no utilizaste nuestro scaffold, explicar brevemente como se corre el código y si hay alguna consideración al correrlo.
 
 ### Código
