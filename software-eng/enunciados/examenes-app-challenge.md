@@ -60,6 +60,8 @@ La pregunta se considera contestada correctamente cuando el texto ingresado es c
 
 Un diagrama (no migración) que muestre un esquema de base de datos relacional que satisfaga las necesidades de esta app. Deben verse claramente las tablas con sus columnas mínimamente necesarias, así como las relaciones entre estas tablas.
 
+Para este ejercicio, pedimos que no se use el tipo de datos JSON/JSONB/BLOB/TEXT (serializando estructuras compuestos).
+
 > No es necesario ERD estricto pero recomendamos hacer un [ERD con esta tool](https://www.lucidchart.com/pages/examples/er-diagram-tool).
 
 ### Diagrama de clases
