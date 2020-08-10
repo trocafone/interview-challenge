@@ -89,7 +89,7 @@ Plasmar el diagrama de clases en algún lenguaje a elección y desarrollar el c�
 
 Escribir tests que demuestren el correcto funcionamiento de la solución partiendo de un examen ya levantado en memoria y un JSON representado la contestación de un usuario. 
 
-No es necesario incluir la base de datos y hacer el endpoint del punto anterior; Nos queremos enfocar solo en el modelo. Tampoco es necesario implementar clases y código que estén en el diagrama de clases pero que no participen en este caso de uso particular.
+No es necesario incluir la base de datos, ni hacer el endpoint del punto anterior; nos queremos enfocar solo en el modelo. Tampoco es necesario implementar clases y código que estén en el diagrama de clases pero que no participen en este caso de uso particular.
 
 
 ## Entrega
