@@ -1,4 +1,4 @@
-# Interview challenge: Examenes
+# Interview challenge: Exámenes
 
 ## Objetivos
 
@@ -58,9 +58,9 @@ La pregunta se considera contestada correctamente cuando el texto ingresado es c
 
 ### Esquema de base de datos
 
-Un diagrama (no migración) que muestre un esquema de base de datos relacional que satisfaga las necesidades de esta app. Deben verse claramente las tablas con sus columnas mínimamente necesarias, así como las relaciones entre estas tablas.
+Un diagrama (no migración) que muestre un esquema de base de datos relacional que satisfaga las necesidades de esta app. Deben verse claramente las tablas con sus columnas mínimamente necesarias, así como las relaciones entre estas tablas. Reflejar en el diagrama las columnas que son primary key, foreign key y en caso de necesitar índices, uniques u otros constrains.
 
-Para este ejercicio, pedimos que no se use el tipo de datos JSON/JSONB/BLOB/TEXT (serializando estructuras compuestos).
+Para este ejercicio, pedimos que no se use el tipo de datos JSON/JSONB, ni se puede serializar estructuras compuestas en tipos de datos simples (ej: pasar un json serializado en un VARCHAR/TEXT).
 
 > No es necesario ERD estricto pero recomendamos hacer un [ERD con esta tool](https://www.lucidchart.com/pages/examples/er-diagram-tool).
 
