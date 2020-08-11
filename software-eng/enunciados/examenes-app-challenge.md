@@ -68,7 +68,7 @@ Para este ejercicio, pedimos que no se use el tipo de datos JSON/JSONB, ni se pu
 Un diagrama que muestre un esquema de clases que satisfaga los requerimientos descritos. Deben poder verse claramente las clases con sus propiedades, métodos clave, así como las relaciones entre estas clases.
 Aprovechamos para remarcar que no vamos a juzgar “over engineering”, como ya fue comentado en la sección de objetivos.
 
-> No es necesario UML estricto pero recomendamos hacer un [Diagrama de clases UML esta tool](https://www.lucidchart.com/pages/examples/uml_diagram_tool).
+> No es necesario UML estricto pero recomendamos hacer un [Diagrama de clases UML con esta tool](https://www.lucidchart.com/pages/examples/uml_diagram_tool).
 
 ### Definición de la interfaz de la API
 Para las siguientes funcionalidades:
