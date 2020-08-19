@@ -33,7 +33,7 @@ Cada examen debe poder ser contestado por muchos usuarios.
 
 Cuando un usuario termina de contestar un examen, la app debe mostrarle el puntaje que obtuvo; el cual está definido como la cantidad de preguntas correctas sobre el total de preguntas.
 
-El usuario evaluador debe poder ver los resultados de todos los exámenes contestados.
+El usuario evaluador debe poder ver todas las respuestas y el puntaje de cada examen contestado.
 
 Cada pregunta debe pertenecer a uno de los siguientes tres tipos:
 
