@@ -72,12 +72,12 @@ function check_docker()
 
 function install_image()
 {
-  out 'Building Docker image'
   if [[ -z $(docker images | grep trocafone-interview-challenge-node) ]]; then
     echo 'First run! base image needs to be built :D'
   else
     docker tag trocafone-interview-challenge-node:latest trocafone-interview-challenge-node:old # tagging and then removing for cache porpouses
   fi
+  echo 'Building image, please wait...'
   docker build . -t trocafone-interview-challenge-node:latest 2>&1 > docker_build.log
   docker rmi trocafone-interview-challenge-node:old >> docker_build.log 2>> docker_build.log
 }
