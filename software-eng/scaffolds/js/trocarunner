@@ -73,32 +73,32 @@ function check_docker()
 function install_image()
 {
   out 'Building Docker image'
-  if [[ -z $(docker images | grep trocafone-interview-challenge) ]]; then
+  if [[ -z $(docker images | grep trocafone-interview-challenge-node) ]]; then
     echo 'First run! base image needs to be built :D'
   else
-    docker tag trocafone-interview-challenge:latest trocafone-interview-challenge:old # tagging and then removing for cache porpouses
+    docker tag trocafone-interview-challenge-node:latest trocafone-interview-challenge-node:old # tagging and then removing for cache porpouses
   fi
-  docker build . -t trocafone-interview-challenge:latest 2>&1 > docker_build.log
-  docker rmi trocafone-interview-challenge:old >> docker_build.log 2>> docker_build.log
+  docker build . -t trocafone-interview-challenge-node:latest 2>&1 > docker_build.log
+  docker rmi trocafone-interview-challenge-node:old >> docker_build.log 2>> docker_build.log
 }
 
 function run_command()
 {
   check_docker
   install_image
-  docker run --rm -t trocafone-interview-challenge:latest $*
+  docker run --rm -t trocafone-interview-challenge-node:latest $*
 }
 
 function run_command_with_volume()
 {
   check_docker
   install_image
-  docker run --rm -t --volume $(pwd):/opt/interview-challenge trocafone-interview-challenge:latest $*
+  docker run --rm -t --volume $(pwd):/opt/interview-challenge trocafone-interview-challenge-node:latest $*
 }
 
 function cleanup()
 {
-  docker rmi -f trocafone-interview-challenge:latest
+  docker rmi -f trocafone-interview-challenge-node:latest
 }
 
 cd_to_project
