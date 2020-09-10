@@ -51,7 +51,7 @@ function help()
   <32;1>cleanup<0>           Removes the built image<0>
 
   <33>Language specific:<0>
-  <32;1>yarn<0>               Run yarn with args provided. Eg: ./trocarunner add lodash<0>'
+  <32;1>yarn<0>              Run yarn with args provided. Eg: ./trocarunner yarn add lodash<0>'
 }
 
 function check_docker()
