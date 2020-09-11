@@ -25,8 +25,9 @@ final class ExampleTest extends TestCase
 
     public function testShouldBeCommutative(): void
     {
-        $result = $this->exampleInstance->sum(2,1);
-        $this->assertEquals(3, $result);
+        $result1 = $this->exampleInstance->sum(1,2);
+        $result2 = $this->exampleInstance->sum(2,1);
+        $this->assertEquals($result1, $result2);
     }
 
     public function testShouldSumWithZero(): void
@@ -49,7 +50,8 @@ final class ExampleTest extends TestCase
 
     public function testSumPositiveAndNegativeNumbersShouldBeCommutative(): void
     {
-        $result = $this->exampleInstance->sum(-2,1);
-        $this->assertEquals(-1, $result);
+        $result1 = $this->exampleInstance->sum(1,-2);
+        $result2 = $this->exampleInstance->sum(-2,1);
+        $this->assertEquals($result1, $result2);
     }
 }

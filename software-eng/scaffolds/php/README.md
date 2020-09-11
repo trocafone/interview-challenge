@@ -17,7 +17,7 @@ Te pedimos que escribas tu código en esas dos carpetas.
 
 Podés correr todo con nuestro runner: `./trocarunner`
 
-Los comandos que provee son: `test`, `cleanup` y `composer` (Podes correr `./trocarunner help` para obtener el detalle)
+Los comandos que provee son: `test`, `cleanup` y `composer` (Podés correr `./trocarunner help` para obtener el detalle)
 
 Usa internamente Docker y está optimizado para ocupar la menor cantidad de disco posible.
 
