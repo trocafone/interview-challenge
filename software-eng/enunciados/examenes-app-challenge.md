@@ -114,7 +114,7 @@ El `README.md` es importante especificarlo por dos motivos:
 1. Cualquier consideración, aclaración o definición que se haya hecho sobre el enunciado debería estar escrita aquí, cuestión que podamos entender el porque se tomó ciertas decisiones.
 2. Si no utilizaste nuestro scaffold, explicar brevemente como se corre el código y si hay alguna consideración al correrlo.
 
-Seguramente el código sea pesado y no lo deje pasar por mail. Podés utilizar [We Transfer](https://wetransfer.com/). También te recomendamos remover la carpeta node_modules antes de comprimir la carpeta.
+Seguramente el código sea pesado y no lo deje pasar por mail. Podés utilizar [WeTransfer](https://wetransfer.com/). También te recomendamos remover las dependencias antes de comprimir la carpeta.
 
 ### Código
 Para no perder tiempo con la creación de la estructura base para correr el código dejamos disponibles scaffolds para Node con ES6 (próximamente Typescript, Python y PHP).
