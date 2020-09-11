@@ -76,7 +76,7 @@ function install_image()
     docker tag trocafone-interview-challenge-php:latest trocafone-interview-challenge-php:old # tagging and then removing for cache porpouses
   fi
   echo 'Building docker image, please wait...'
-  docker build . -t trocafone-interview-challenge-php:latest # 2>&1 > docker_build.log
+  docker build . -t trocafone-interview-challenge-php:latest 2>&1 > docker_build.log
   docker rmi trocafone-interview-challenge-php:old >> docker_build.log 2>> docker_build.log
 }
 
