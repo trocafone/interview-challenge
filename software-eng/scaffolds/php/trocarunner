@@ -45,13 +45,11 @@ function help()
 {
   out '
   <33>Available commands:<0>
-  <32;1>test<0>              Run tests in Docker<0>
-  <32;1>coverage<0>          Run test & coverage in Docker<0>
-  <32;1>lint<0>              Run linter in Docker<0>
+  <32;1>test<0>              Run tests<0>
   <32;1>cleanup<0>           Removes the built image<0>
 
   <33>Language specific:<0>
-  <32;1>yarn<0>              Run yarn with args provided. Eg: ./trocarunner yarn add lodash<0>'
+  <32;1>composer<0>          Run composer with args provided. Eg: ./trocarunner composer install<0>'
 }
 
 function check_docker()
@@ -72,33 +70,33 @@ function check_docker()
 
 function install_image()
 {
-  if [[ -z $(docker images | grep trocafone-interview-challenge-node) ]]; then
+  if [[ -z $(docker images | grep trocafone-interview-challenge-php) ]]; then
     echo 'First run! base image needs to be built :D'
   else
-    docker tag trocafone-interview-challenge-node:latest trocafone-interview-challenge-node:old # tagging and then removing for cache porpouses
+    docker tag trocafone-interview-challenge-php:latest trocafone-interview-challenge-php:old # tagging and then removing for cache porpouses
   fi
-  echo 'Building image, please wait...'
-  docker build . -t trocafone-interview-challenge-node:latest 2>&1 > docker_build.log
-  docker rmi trocafone-interview-challenge-node:old >> docker_build.log 2>> docker_build.log
+  echo 'Building docker image, please wait...'
+  docker build . -t trocafone-interview-challenge-php:latest 2>&1 > docker_build.log
+  docker rmi trocafone-interview-challenge-php:old >> docker_build.log 2>> docker_build.log
 }
 
 function run_command()
 {
   check_docker
   install_image
-  docker run --rm -t trocafone-interview-challenge-node:latest $*
+  docker run --rm -t trocafone-interview-challenge-php:latest $*
 }
 
 function run_command_with_volume()
 {
   check_docker
   install_image
-  docker run --rm -t --volume $(pwd):/opt/interview-challenge trocafone-interview-challenge-node:latest $*
+  docker run --rm -it --volume $(pwd):/opt/interview-challenge trocafone-interview-challenge-php:latest $*
 }
 
 function cleanup()
 {
-  docker rmi -f trocafone-interview-challenge-node:latest
+  docker rmi -f trocafone-interview-challenge-php:latest
 }
 
 cd_to_project
@@ -107,17 +105,11 @@ logo
 
 COMMAND=$1; shift
 case $COMMAND in
-  coverage)
-    run_command coverage
-  ;;
-  lint)
-    run_command lint
-  ;;
   test)
     run_command test
   ;;
-  yarn)
-    run_command_with_volume yarn $*
+  composer)
+    run_command_with_volume sh composer $*
   ;;
   cleanup)
     cleanup
