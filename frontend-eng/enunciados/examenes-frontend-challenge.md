@@ -70,7 +70,7 @@ Para crear varias respuestas y elegir cual es la que devuelve la API [ver este t
 Lo que no te deje definir en Mockoon (ejemplo: body del request), documentarlo en un archivo interfaz.md. Si no pudiste usar Mockoon, te pedimos que en ese archivo dejes definido todo lo que se pide en este punto.
 
 ### Implementación del frontend
-Implementar el frontend en base a los requerimientos planteados y guiándose con el diseño que [se puede encontrar en el siguiente link.](asd).
+Implementar el frontend en base a los requerimientos planteados y guiándose con el diseño que [se puede encontrar en el siguiente link.](https://zpl.io/aBrRe10) Si no tenés permisos, por favor comunicate lo antes posible con la persona encargada de tu procesog.
 
 Se puede utilizar tanto ES5/ES6 como Typescript para la implementación del code challenge.
 
