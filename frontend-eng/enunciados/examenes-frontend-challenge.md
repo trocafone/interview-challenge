@@ -7,6 +7,11 @@ En Trocafone utilizamos React para el eCommerce. Estamos migrando el site comple
 
 > Buscamos entender cómo pensás los componentes y cómo manejás su diseño. También entender cómo preferís manejar el estado, las traducciones, llamadas a APIs, ruteo, etc.
 
+### Evaluar experiencia con Angular
+En Trocafone utilizamos Angular para la plataforma de Trade-in. Nuestro code-base va seguir creciendo y cambiando para adaptarse a las necesidades del negocio, por lo tanto es requerido que sea mantenible y escalable.
+
+> Buscamos entender cómo pensás los componentes y cómo manejás su diseño. También entender cómo preferís manejar el estado, las traducciones, llamadas a APIs, ruteo, etc.
+
 ### Evaluar experiencia de traducir un diseño a una aplicación
 Parte de nuestros desafíos es tomar los diseños de nuestros diseñadores de producto y poder convertirlas en una aplicación real. Buscamos ser pixel-perfect y asegurarnos que funcione la página para diferentes resoluciones y browsers.
 
@@ -70,7 +75,7 @@ Para crear varias respuestas y elegir cual es la que devuelve la API [ver este t
 Lo que no te deje definir en Mockoon (ejemplo: body del request), documentarlo en un archivo interfaz.md. Si no pudiste usar Mockoon, te pedimos que en ese archivo dejes definido todo lo que se pide en este punto.
 
 ### Implementación del frontend
-Implementar el frontend en base a los requerimientos planteados y guiándose con el diseño que [se puede encontrar en el siguiente link.](https://zpl.io/aBrRe10) Si no tenés permisos, por favor comunicate lo antes posible con la persona encargada de tu procesog.
+Implementar el frontend en base a los requerimientos planteados y guiándose con el diseño que [se puede encontrar en el siguiente link.](https://zpl.io/aBrRe10) Si no tenés permisos, por favor comunicate lo antes posible con la persona encargada de tu proceso.
 
 Se puede utilizar tanto ES5/ES6 como Typescript para la implementación del code challenge.
 
