@@ -85,7 +85,7 @@ Se puede utilizar tanto ES5/ES6 como Typescript para la implementación del code
 
 
 ## Entrega
-Te vamos a pedir que la entrega la hagas por mail en un `.zip` o `.tar.gz` con la siguiente estructura:
+Te vamos a pedir que la entrega la hagas por mail en un `.zip` o `.tar.gz` con el código y una **versión compilada** con la siguiente estructura:
 
 ```
 examen/
@@ -95,7 +95,11 @@ examen/
 ├── code/
 │   ├── ...
 │   ├── src/
-│   └── test/
+│   └── ...
+├── dist/
+│   ├── ...
+│   ├── index.html
+|   └── ...
 └── README.md
 ```
 
