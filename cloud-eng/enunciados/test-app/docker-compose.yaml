@@ -1,0 +1,110 @@
+version: '3.7'
+
+services:
+  test-api:
+    container_name: test-api
+    build:
+      context: ./Dockerfiles/test-api/
+      target: api
+    restart: always
+    entrypoint: /bin/bash -c 'bash /init.sh START_API && bash'
+    networks:
+      - test-network
+    ports:
+      - "81:80"
+    environment:
+      - POSTGRES_PASSWORD=2miYFGVoHMZrvZAh
+    volumes:
+      - ./Dockerfiles/test-api/init.sh/:/init.sh:ro
+      - ./Dockerfiles/test-api/php/7.4/fpm/php.ini:/etc/php/7.4/fpm/php.ini:ro
+      - ./Dockerfiles/test-api/php/7.4/fpm/php-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf:ro
+      - ./Dockerfiles/test-api/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Dockerfiles/test-api/site/index.php:/var/app/index.php:ro
+    healthcheck:
+      test: ["CMD-SHELL", "bash -x init.sh API_READY"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    links:
+      - test-pgsql
+      - test-redis
+      - test-worker
+    depends_on:
+      test-worker:
+        condition: service_healthy
+    tty: true
+
+  test-worker:
+    container_name: test-worker
+    build:
+      context: ./Dockerfiles/test-worker/
+      target: worker
+    restart: always
+    entrypoint: /bin/bash -c 'bash /init.sh START_WORKER && bash'
+    networks:
+      - test-network
+    volumes:
+      - ./Dockerfiles/test-worker/init.sh/:/init.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "bash -x init.sh WORKER_READY"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      - POSTGRES_PASSWORD=2miYFGVoHMZrvZAh
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=troca-test
+      - POSTGRES_HOST=test-pgsql
+    links:
+      - test-redis
+      - test-pgsql
+    depends_on:
+      test-pgsql:
+        condition: service_started
+      test-redis:
+        condition: service_healthy
+    tty: true
+          
+  test-redis:
+    container_name: test-redis
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./Dockerfiles/test-redis/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a ${REDIS_PASSWORD} ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - test-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.050'
+          memory: 100M
+        reservations:
+          memory: 10M
+
+  test-pgsql:
+    container_name: test-pgsql
+    image: postgres:latest
+    networks:
+      - test-network
+    environment:
+      - POSTGRES_PASSWORD=2miYFGVoHMZrvZAh
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=troca-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.100'
+          memory: 10M
+        reservations:
+          memory: 10M
+
+networks:
+  test-network:
+    name: test-network
