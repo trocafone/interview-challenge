@@ -1,0 +1,44 @@
+server {
+        listen 80;
+        server_name panel.${DEVELOPER}.pilotcrm.io;
+        set $subdomain crm-admin;
+        set $baseroot "/var/app";
+        set $docroot "";
+    
+        if (-d "${baseroot}/${subdomain}/webroot") {
+                set $docroot "/webroot";
+        }
+        if (-d "${baseroot}/${subdomain}/public") {
+                set $docroot "/public";
+        }
+        if (-d "${baseroot}/${subdomain}/public_html") {
+                set $docroot "/public_html";
+        }
+    
+        root "${baseroot}/${subdomain}${docroot}";
+        index index.html index.htm index.php;
+        autoindex on;
+
+        error_log /var/log/nginx/crm-web_error.log error;
+        access_log /var/log/nginx/crm-web.log;
+
+    location ~* \.(jpg|jpeg|gif|png|css|js|ico)$ {
+        access_log        off;
+        log_not_found     off;
+    }
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+    include alias.d/*.conf;
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass php7.4fpm_pool;
+        fastcgi_read_timeout 600;
+        include fastcgi_params;
+  }
+  location ~ /\. {
+      access_log        off;
+      log_not_found     off;
+      deny all;
+  }
+}
