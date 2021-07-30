@@ -14,7 +14,7 @@ REDIS_START () {
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_password "$POSTGRES_PASSWORD" &>/dev/null
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_user "$POSTGRES_USER" &>/dev/null
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_db "$POSTGRES_DB" &>/dev/null
-        redis-cli -a $REDIS_PASSWORD -h test-redis set sql_host "POSTGRES_HOST" &>/dev/null
+        redis-cli -a $REDIS_PASSWORD -h test-redis set sql_host "$POSTGRES_HOST" &>/dev/null
     }
     WRITE_KEYS
     if [[ $? = '0' ]]
@@ -39,7 +39,7 @@ POSTGRES_START () {
 }
 
 WORKER_READY () {
-    if [[ "$(REDIS_TESTS)" = 'ok' ]] && [[ "$(POSTGRES_TEST)" = 'ok' ]]
+    if [[ "$(REDIS_TESTS)" != 'ok' ]] && [[ "$(POSTGRES_TEST)" = 'ok' ]]
         then echo "Worker Ready"; exit 0
         else echo "Worker not working"; exit 1
     fi

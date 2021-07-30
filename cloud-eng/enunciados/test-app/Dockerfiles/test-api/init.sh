@@ -8,8 +8,12 @@ CREATE_ENV_FILE () {
 }
 
 SERVICE_START () {
-    service nginx start
     service php7.4-fpm start
+    service nginx start
+}
+
+LOGS () {
+    tail -f -n 50 /var/log/nginx/*
 }
 
 SERVICE_TEST () {
@@ -27,8 +31,9 @@ API_READY () {
 }
 
 START_API () {
-    GET_ENV
+    CREATE_ENV_FILE
     SERVICE_START
+    LOGS
 }
 
 COMMAND=$1

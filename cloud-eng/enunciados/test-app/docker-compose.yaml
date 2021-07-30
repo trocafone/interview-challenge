@@ -14,12 +14,12 @@ services:
       - "81:80"
     environment:
       - POSTGRES_PASSWORD=2miYFGVoHMZrvZAh
-      - REDIS_PASSWORD=YjtfdLD6arl3rL3h
     volumes:
       - ./Dockerfiles/test-api/init.sh/:/init.sh:ro
       - ./Dockerfiles/test-api/php/7.4/fpm/php.ini:/etc/php/7.4/fpm/php.ini:ro
       - ./Dockerfiles/test-api/php/7.4/fpm/php-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf:ro
       - ./Dockerfiles/test-api/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Dockerfiles/test-api/site/index.php:/var/app/index.php:ro
     healthcheck:
       test: ["CMD-SHELL", "bash -x init.sh API_READY"]
       interval: 5s
@@ -54,7 +54,6 @@ services:
       - POSTGRES_PASSWORD=2miYFGVoHMZrvZAh
       - POSTGRES_USER=postgres
       - POSTGRES_DB=troca-test
-      - REDIS_PASSWORD=YjtfdLD6arl3rL3h
       - POSTGRES_HOST=test-pgsql
     links:
       - test-redis
@@ -74,7 +73,6 @@ services:
       - ./Dockerfiles/test-redis/redis.conf:/usr/local/etc/redis/redis.conf
     environment:
       - REDIS_REPLICATION_MODE=master
-      - REDIS_PASSWORD=YjtfdLD6arl3rL3h
     healthcheck:
       test: ["CMD-SHELL", "redis-cli -a ${REDIS_PASSWORD} ping"]
       interval: 5s
@@ -103,9 +101,9 @@ services:
       resources:
         limits:
           cpus: '0.100'
-          memory: 200M
+          memory: 10M
         reservations:
-          memory: 100M
+          memory: 10M
 
 networks:
   test-network:

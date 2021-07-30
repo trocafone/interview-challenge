@@ -51,7 +51,6 @@ RUN apt-get remove apt-utils software-properties-common gpg-agent cpp -y \
 
 COPY nginx/sites-available /etc/nginx/sites-available
 COPY php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/www.conf
-COPY site/index.php /var/app/index.php
 
 RUN mkdir -p /var/log/nginx \
     && mkdir -p /tmp/logs \
@@ -59,4 +58,4 @@ RUN mkdir -p /var/log/nginx \
 
 RUN rm -rf /etc/nginx/sites-enabled && ln -sf /etc/nginx/sites-available /etc/nginx/sites-enabled
 
-WORKDIR /srv/www
+WORKDIR /var/app
