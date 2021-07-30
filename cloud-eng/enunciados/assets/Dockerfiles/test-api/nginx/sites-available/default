@@ -1,21 +1,7 @@
 server {
         listen 80;
-        server_name panel.${DEVELOPER}.pilotcrm.io;
-        set $subdomain crm-admin;
-        set $baseroot "/var/app";
-        set $docroot "";
-    
-        if (-d "${baseroot}/${subdomain}/webroot") {
-                set $docroot "/webroot";
-        }
-        if (-d "${baseroot}/${subdomain}/public") {
-                set $docroot "/public";
-        }
-        if (-d "${baseroot}/${subdomain}/public_html") {
-                set $docroot "/public_html";
-        }
-    
-        root "${baseroot}/${subdomain}${docroot}";
+   
+        root /var/app;
         index index.html index.htm index.php;
         autoindex on;
 

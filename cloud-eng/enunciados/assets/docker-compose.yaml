@@ -43,8 +43,6 @@ services:
     entrypoint: /bin/bash -c 'bash /init.sh START_WORKER && bash'
     networks:
       - test-network
-    ports:
-      - "80:80"
     volumes:
       - ./Dockerfiles/test-worker/init.sh/:/init.sh:ro
     healthcheck:
@@ -57,9 +55,10 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=troca-test
       - REDIS_PASSWORD=YjtfdLD6arl3rL3h
+      - POSTGRES_HOST=test-pgsql
     links:
-      - test-pgsql
       - test-redis
+      - test-pgsql
     depends_on:
       test-pgsql:
         condition: service_started
@@ -70,9 +69,7 @@ services:
   test-redis:
     container_name: test-redis
     image: redis:alpine
-    command: redis-server
-    ports:
-      - 6379:6379
+    command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
       - ./Dockerfiles/test-redis/redis.conf:/usr/local/etc/redis/redis.conf
     environment:
@@ -96,16 +93,12 @@ services:
   test-pgsql:
     container_name: test-pgsql
     image: postgres:latest
-    ports:
-      - 5432:5432
     networks:
       - test-network
     environment:
       - POSTGRES_PASSWORD=2miYFGVoHMZrvZAh
       - POSTGRES_USER=postgres
       - POSTGRES_DB=troca-test
-    volumes:
-      - ./Dockerfiles/test-pgsql/:/config:ro
     deploy:
       resources:
         limits:

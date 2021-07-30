@@ -1,19 +1,15 @@
 #!/bin/bash
 
-GET_ENV () {
-    redis-cli -a ${REDIS_PASSWORD} get sql_password > /tmp/sql_password
-    redis-cli -a ${REDIS_PASSWORD} get sql_user  > /tmp/sql_user
-    redis-cli -a ${REDIS_PASSWORD} get sql_db > /tmp/sql_db
-    redis-cli -a ${REDIS_PASSWORD} get sql_host > /tmp/sql_host
-}
-
 CREATE_ENV_FILE () {
-    echo "in progress"
+    echo 'SQL_PASSWORD='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_password)"'' >> /var/app/.env
+    echo 'SQL_USER='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_user)"'' >> /var/app/.env
+    echo 'SQL_DB='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_db)"'' >> /var/app/.env
+    echo 'SQL_HOST='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_host)"'' >> /var/app/.env
 }
 
 SERVICE_START () {
-    service nginx start &> /dev/null
-    service php7.4-fpm start &> /dev/null
+    service nginx start
+    service php7.4-fpm start
 }
 
 SERVICE_TEST () {
@@ -34,3 +30,6 @@ START_API () {
     GET_ENV
     SERVICE_START
 }
+
+COMMAND=$1
+$COMMAND

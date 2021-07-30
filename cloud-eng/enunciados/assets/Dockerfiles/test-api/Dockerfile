@@ -39,7 +39,8 @@ RUN apt-get update \
     && apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends php7.4 \
-                                                  php7.4-fpm
+                                                  php7.4-fpm \
+                                                  php7.4-pgsql
 
 # Clean packages installers
 RUN apt-get remove apt-utils software-properties-common gpg-agent cpp -y \
@@ -50,6 +51,7 @@ RUN apt-get remove apt-utils software-properties-common gpg-agent cpp -y \
 
 COPY nginx/sites-available /etc/nginx/sites-available
 COPY php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY site/index.php /var/app/index.php
 
 RUN mkdir -p /var/log/nginx \
     && mkdir -p /tmp/logs \
