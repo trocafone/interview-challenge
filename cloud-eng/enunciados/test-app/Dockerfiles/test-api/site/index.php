@@ -49,26 +49,41 @@ class DotEnv
 use DevCoder\DotEnv;
 (new DotEnv(__DIR__ . '/.env'))->load();
 
-$db_handle = pg_connect("dbname=".getenv("SQL_DB")." "."user=".getenv("SQL_USER")." "."password=".getenv("SQL_PASSWORD")." "."host=".getenv("SQL_HOST"));
+$conn = pg_connect("dbname=".getenv("SQL_DB")." "."user=".getenv("SQL_USER")." "."password=".getenv("SQL_PASSWORD")." "."host=".getenv("SQL_HOST"));
 
-if ($db_handle) {
+if ($conn) {
 
-echo 'Connection attempt succeeded.'. '<br>';
+echo 'Connection attempt to database succeeded.'. '<br>';
 echo 'DBNAME: ' . getenv("SQL_DB") . '<br>';
 echo 'DBPASSWORD: ' . getenv("SQL_PASSWORD") . '<br>';
 echo 'DBUSER: ' . getenv("SQL_USER") . '<br>';
 echo 'DBHOST: ' . getenv("SQL_HOST") . '<br>';
 
+// estas sentencias se ejecutarán como una sola transacción
+
+$query = "INSERT into troca_test SET name=UPPER(author) WHERE id=1;";
+$query = "SELECT * FROM troca_test;";
+
+if (pg_query($conn, $query)) {
+    echo 'Connection to table ' . getenv("SQL_TABLE") . 'attempt succeeded.'. '<br>';
+    
 } else {
 
-echo 'Connection attempt failed.'. '<br>';
+echo 'Connection attempt to table failed.'. '<br>';
+
+}
+
+} else {
+    
+echo 'Connection attempt to database  failed.'. '<br>';
 echo 'DBNAME: ' . getenv("SQL_DB") . '<br>';
+echo 'DBTABLE: ' . getenv("SQL_TABLE") . '<br>';
 echo 'DBPASSWORD: ' . getenv("SQL_PASSWORD") . '<br>';
 echo 'DBUSER: ' . getenv("SQL_USER") . '<br>';
 echo 'DBHOST: ' . getenv("SQL_HOST") . '<br>';
 
 }
 
-pg_close($db_handle);
+pg_close($conn);
 
 ?>
