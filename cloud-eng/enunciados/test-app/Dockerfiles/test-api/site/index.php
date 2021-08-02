@@ -58,18 +58,19 @@ echo 'DBNAME: ' . getenv("SQL_DB") . '<br>';
 echo 'DBPASSWORD: ' . getenv("SQL_PASSWORD") . '<br>';
 echo 'DBUSER: ' . getenv("SQL_USER") . '<br>';
 echo 'DBHOST: ' . getenv("SQL_HOST") . '<br>';
+echo 'DBTABLE: ' . getenv("SQL_TABLE") . '<br>';
 
 // estas sentencias se ejecutarán como una sola transacción
 
-$query = "INSERT into troca_test SET name=UPPER(author) WHERE id=1;";
-$query = "SELECT * FROM troca_test;";
-
-if (pg_query($conn, $query)) {
-    echo 'Connection to table ' . getenv("SQL_TABLE") . 'attempt succeeded.'. '<br>';
+$query = "INSERT into " .getenv("SQL_TABLE") . " SET name=UPPER(author) WHERE id=1;";
+$query = "SELECT * FROM " .getenv("SQL_TABLE") . ";";
+$res = pg_query($conn, $query)
+if ($res) {
+    echo 'Connection attempt to table ' . getenv("SQL_TABLE") . ' succeeded.'. '<br>';
     
 } else {
 
-echo 'Connection attempt to table failed.'. '<br>';
+echo 'Connection attempt to table ' . getenv("SQL_TABLE") . ' failed.'. '<br>';
 
 }
 
@@ -81,6 +82,7 @@ echo 'DBTABLE: ' . getenv("SQL_TABLE") . '<br>';
 echo 'DBPASSWORD: ' . getenv("SQL_PASSWORD") . '<br>';
 echo 'DBUSER: ' . getenv("SQL_USER") . '<br>';
 echo 'DBHOST: ' . getenv("SQL_HOST") . '<br>';
+echo 'DBTABLE: ' . getenv("SQL_TABLE") . '<br>';
 
 }
 

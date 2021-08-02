@@ -51,4 +51,7 @@ RUN mkdir -p /var/log/nginx \
     && mkdir -p /tmp/logs \
     && touch /run/nginx.pid
 
+RUN rm -rf /etc/nginx/sites-enabled
+    #ln -sf /etc/nginx/sites-available /etc/nginx/sites-enabled
+
 WORKDIR /var/app

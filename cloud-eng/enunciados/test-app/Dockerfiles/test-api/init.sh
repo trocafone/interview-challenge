@@ -5,6 +5,7 @@ CREATE_ENV_FILE () {
     echo 'SQL_USER='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_user)"'' >> /var/app/.env
     echo 'SQL_DB='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_db)"'' >> /var/app/.env
     echo 'SQL_HOST='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_host)"'' >> /var/app/.env
+    echo 'SQL_TABLE='"$(redis-cli -a $REDIS_PASSWORD -h test-redis get sql_table)"'' >> /var/app/.env
 }
 
 SERVICE_START () {
