@@ -15,6 +15,7 @@ REDIS_START () {
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_user "$POSTGRES_USER" &>/dev/null
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_db "$POSTGRES_DB" &>/dev/null
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_host "$POSTGRES_HOST" &>/dev/null
+        redis-cli -a $REDIS_PASSWORD -h test-redis set sql_table "TROCA_TABLE" &>/dev/null
     }
     WRITE_KEYS
     if [[ $? = '0' ]]
@@ -24,7 +25,7 @@ REDIS_START () {
 }
 
 POSTGRES_TEST () {
-    PG_TEST=$(PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'select 1 from troca_test';)
+    PG_TEST=$(PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'select 1 from TROCA_TABLE';)
     $PG_TEST
     if [[ $? = '1' ]]
         then echo "no funciona"; 
@@ -35,7 +36,7 @@ POSTGRES_TEST () {
 
 POSTGRES_START () {
     sleep 5
-    PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'CREATE TABLE troca_test (name varchar(80));';
+    PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'CREATE TABLE TROCA_TABLE (name varchar(80));';
 }
 
 WORKER_READY () {

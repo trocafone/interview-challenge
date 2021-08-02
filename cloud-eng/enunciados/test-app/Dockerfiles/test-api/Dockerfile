@@ -43,11 +43,6 @@ RUN apt-get update \
                                                   php7.4-pgsql
 
 # Clean packages installers
-RUN apt-get remove apt-utils software-properties-common gpg-agent cpp -y \
-    && apt-get autoclean -y \
-    && apt-get autoremove -y \
-    && rm -rf /var/cache/apt/archives/* \
-    && apt-get install sudo
 
 COPY nginx/sites-available /etc/nginx/sites-available
 COPY php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/www.conf
@@ -56,6 +51,7 @@ RUN mkdir -p /var/log/nginx \
     && mkdir -p /tmp/logs \
     && touch /run/nginx.pid
 
-RUN rm -rf /etc/nginx/sites-enabled && ln -sf /etc/nginx/sites-available /etc/nginx/sites-enabled
+RUN rm -rf /etc/nginx/sites-enabled
+    #ln -sf /etc/nginx/sites-available /etc/nginx/sites-enabled
 
 WORKDIR /var/app
