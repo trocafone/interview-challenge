@@ -15,7 +15,7 @@ REDIS_START () {
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_user "$POSTGRES_USER" &>/dev/null
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_db "$POSTGRES_DB" &>/dev/null
         redis-cli -a $REDIS_PASSWORD -h test-redis set sql_host "$POSTGRES_HOST" &>/dev/null
-        redis-cli -a $REDIS_PASSWORD -h test-redis set sql_table "TROCA_TABLE" &>/dev/null
+        redis-cli -a $REDIS_PASSWORD -h test-redis set sql_table "TABLA_TROCA" &>/dev/null
     }
     WRITE_KEYS
     if [[ $? = '0' ]]
