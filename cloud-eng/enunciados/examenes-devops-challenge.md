@@ -11,18 +11,16 @@ En este ejercicio hay tres Dockerfile diferentes y un docker-compose, cada uno c
 En los diferentes scripts de bash hay queries hacia una base de datos postgres, la idea es que se pueda crear una tabla y hacer los chequeos correspondientes del servicio
 También, para funcionar descarga los datos de conexión desde redis y los guarda en un archivo de variables y los mismos son escritos por un worker en un paso previo (durante docker-compose), por lo que la conexión a redis es fundamental desde diferentes contenedores, y la misma se encuentra con clave
 ## Problema
-Hay 5 errores que no permiten que la aplicación funcione correctamente, los cuales se pueden encontrar en los archivos de docker-compose / Dockerfile y los scripts de bash (init.sh), una vez solucionados los mismos, debería poder hacerse log en la web localhost:81
+Hay un mínimo de 5 errores que no permiten que la aplicación funcione correctamente, los cuales se pueden encontrar en los archivos de docker-compose / Dockerfile y los scripts de bash (init.sh), una vez solucionados los mismos, debería poder verse una web de validación en localhost:81
 ## Se pide
 
 ### Arquitectura de la aplicación
-
 Diagramar el funcionamiento de la aplicación basandose en el docker-compose y las conexiones realizadas por los scripts de inicio de cada contenedor
 
 ### Resumen de soluciones propuestas y mejoras a la plataforma
 Hacer un pequeño resumen de cuáles fueron los pasos realizados para solucionar los problemas que se encontraron en la aplicación y proponer mejoras en caso de encontrarlas
 
 ## Entrega
-
 Te vamos a pedir que la entrega la hagas por mail en un `.zip` o `.tar.gz` con la siguiente estructura:
 ```
 examen/
