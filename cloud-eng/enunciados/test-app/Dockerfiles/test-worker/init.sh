@@ -25,7 +25,7 @@ REDIS_START () {
 }
 
 POSTGRES_TEST () {
-    PG_TEST=$(PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'select 1 from TROCA_TABLE';)
+    PG_TEST=$(PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'select 1';)
     $PG_TEST
     if [[ $? = '1' ]]
         then echo "no funciona"; 
@@ -35,8 +35,7 @@ POSTGRES_TEST () {
 }
 
 POSTGRES_START () {
-    sleep 5
-    PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -d $POSTGRES_DB -h $POSTGRES_HOST -c 'CREATE TABLE TROCA_TABLE (name varchar(80));';
+    echo "Es necesario crear la tabla TROCA_TABLE"
 }
 
 WORKER_READY () {
